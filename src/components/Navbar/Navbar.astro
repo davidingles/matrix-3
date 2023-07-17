@@ -1,0 +1,14 @@
+---
+// import { menu } from '../../data/menu'
+const menu = ['productos' ,'servicios', 'nosotros']
+---
+
+<nav class="border-8 w-full flex">
+    Auxiliar
+
+    <ul class="text-black">
+        { menu.map( i => (
+            <li>{i}</li>
+        ))}
+    </ul>
+</nav>
