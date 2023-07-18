@@ -1,20 +1,11 @@
 ---
-import Layout from "../layouts/Layout.astro"
 import {menu} from "../data/menu"
-import svg from "../../public/svg/ham.svg"
 ---
-<Layout title="Auxiliar Manipuladora del Cartón">
 
-    <!-- <img 
-        class="box fixed w-[2rem] cursor-pointer -top-10 left-0 m-2 " 
-        src={svg} 
-        alt="simbolo de menú"
-    > -->
-
+<!-- <div>no funciona</div>   -->
     <header
         id="landing-header"
-        class="-top-10 text-white flex fixed  w-full font-eras px-6  z-40 flex-row flex-nowrap">
-
+        class=" navbar top-0 left-0 text-black flex fixed  w-full font-eras px-6  z-40 flex-row flex-nowrap">
 
 
         <nav class="flex-1">
@@ -45,9 +36,8 @@ import svg from "../../public/svg/ham.svg"
     
         </div>
     </header>
-</Layout>
 
-<!-- //BACKDROP====JS -->
+<!-- // CON ESTE SCRIPT CONSEGUIMOS EL EFECTO BACKDROP====JS -->
 <script>
     const listItem = document.querySelectorAll('#landing-header li')
     const menuBackDrop = document.querySelector('#menu-backdrop') as HTMLElement
@@ -68,6 +58,7 @@ import svg from "../../public/svg/ham.svg"
     })
 </script>
 
+<!-- //CON ESTE SCRIPT CONSEGUIMOS QUE EL SCHROLL DE LA PANTALLA SE IMANTADO===== -->
 <script>
     const $header = document.querySelector('#landing-header') as HTMLElement
     const $cinta = document.querySelector('#dil-cinta') as HTMLElement
@@ -96,6 +87,8 @@ import svg from "../../public/svg/ham.svg"
 
 </script>
 
+
+<!-- CON ESTE CÓDIGO QUE NO FUNCIONA DEBERIA MOSTRAR EL MENU========== -->
 <script>
     const nav = document.querySelector('#landing-header')
     window.addEventListener('load', () => {
@@ -103,7 +96,7 @@ import svg from "../../public/svg/ham.svg"
     })
 </script>
 
-<style>
+<!-- <style>
     .visible{
         transition: all 1s ease;
         transform: translateY(100%);
@@ -128,6 +121,32 @@ import svg from "../../public/svg/ham.svg"
             pointer-events: all;
         }
     }
+</style> -->
 
+<script>
+    // Add an event listener to the window to run the `animateNav` function when the page loads
+    window.addEventListener("load", animateNav);
 
-</style>
+    // The `animateNav` function animates the `nav` element to appear in the viewport
+    function animateNav() {
+    // Get the `nav` element
+    const nav = document.querySelector(".navbar");
+
+    // Set the `nav` element's `position` property to `fixed`
+    nav.style.position = "fixed";
+
+    // Set the `nav` element's `top` property to `0`
+    nav.style.top = "-22PX";
+
+    // Set the `nav` element's `opacity` property to `0`
+    nav.style.opacity = "1";
+
+    // Animate the `nav` element's `opacity` property to `1` over a period of 1 second
+    nav.animate({
+        opacity: "1",
+        top: '22px'
+    }, 2000);
+    nav.style.animationDuration= '0s'
+    }
+
+</script>
